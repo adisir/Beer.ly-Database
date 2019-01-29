@@ -1,0 +1,50 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-2">Welcome to Bar Beer Drinker</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+
+<div class="container">
+  <p-table [value] = "bars" [paginator]="true" [rows]="10"> 
+    <ng-template pTemplate="header">
+      <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>License</th>
+    </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-bar>
+      <tr>
+        <td>
+          <a routerLink="/bars/{{ bar.name }}">{{ bar.name }}</a>
+        </td>
+        <td>{{ bar.city }}</td>
+        <td>{{ bar.license }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+<br>
+</div>
+<div class="container">
+  <h5 class="display-4 text-center">Bar Analytics</h5>
+  <p-table [value] = "topBars"> 
+    <ng-template pTemplate="header">
+      <tr>
+      <th>Bar</th>
+      <th>Total Sales</th>
+    </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-topBars>
+      <tr>
+        <td>
+          <a routerLink="/bars/{{ topBars.bar }}">{{ topBars.bar }}</a>
+        </td>
+        <td>{{ topBars.total_sales }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+<br>
+</div>
